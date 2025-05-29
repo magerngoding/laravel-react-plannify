@@ -12,7 +12,7 @@ export default function EmptyState({ title, url, className }) {
             )}
         >
             <PiDatabase className='mx-auto h-12 w-12 text-muted-foreground' />
-            <span className="mt-2 block text-sm font-medium leading-relaxed tracking-tighter">
+            <span className="mt-2 block tex.t-sm font-medium leading-relaxed tracking-tighter">
                 Create a new {title}
             </span>
         </Link>
