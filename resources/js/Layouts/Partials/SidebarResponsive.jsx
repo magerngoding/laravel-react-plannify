@@ -65,11 +65,11 @@ export default function SidebarResponsive({ auth, url }) {
                                 </Link>
                             </li>
                             <li>
-                                <Link href=''
+                                <Link href={route('logout')} method='post' as='button'
                                     className={cn(
                                         url.startsWith('/logout')
                                             ? 'bg-red-500 text-white'
-                                            : 'text-foreground hover:bg-gray-100', 'group flex gap-3 rounded-md p-3 text-sm font-semibold leading-relaxed'
+                                            : 'text-foreground hover:bg-gray-100', 'group w-full flex gap-3 rounded-md p-3 text-sm font-semibold leading-relaxed'
                                     )}
                                 >
                                     <CiLogout className={cn(url.startsWith('/logout')
