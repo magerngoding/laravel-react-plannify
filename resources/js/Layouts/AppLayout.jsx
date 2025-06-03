@@ -10,6 +10,7 @@ import SidebarResponsive from './Partials/SidebarResponsive';
 export default function AppLayout({ children, title }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const auth = usePage().props.auth.user;
+    const { url } = usePage();
 
     return (
         <>
@@ -61,7 +62,7 @@ export default function AppLayout({ children, title }) {
                                         </div>
                                     </Transition.Child>
                                     {/* Sidebar Responsive */}
-                                    <SidebarResponsive auth={auth} />
+                                    <SidebarResponsive auth={auth} url={url} />
                                 </Dialog.Panel>
                             </Transition.Child>
                         </div>
@@ -79,7 +80,7 @@ export default function AppLayout({ children, title }) {
                             </Link>
                         </div>
                         {/* Sidebar */}
-                        <Sidebar auth={auth} />
+                        <Sidebar auth={auth} url={url} />
                     </div>
                 </div>
                 <div className="sticky top-0 z-40 flex items-center px-4 py-4 bg-white shadow-sm dark:bg-gray-900 gap-x-6 sm:px-6 lg:hidden">

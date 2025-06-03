@@ -1,9 +1,10 @@
 import { Link } from '@inertiajs/react';
 import { CiUser, CiLogout, CiGrid41, CiHome, CiMedicalCross } from "react-icons/ci";
 import { Avatar, AvatarFallback } from '@/Components/ui/avatar';
+import { cn } from '@/lib/utils';
 
 
-export default function Sidebar({ auth }) {
+export default function Sidebar({ auth, url }) {
     return (
         <nav className="flex flex-col flex-1">
             <ul role="list" className="flex flex-col flex-1 gap-y-7">
@@ -11,26 +12,73 @@ export default function Sidebar({ auth }) {
                     <ul role="list" className="-mx-2 space-y-2">
                         {/* menu */}
                         <li>
-                            <Link href='' className='flex p-3 text-sm font-semibold leading-relaxed tracking-tighter rounded-md text-foreground hover:bg-gray-100 group gap-x-3'>
-                                <CiHome className='w-6 h-6 text-foreground shrink-0' />
+                            <Link href={route('dashboard')}
+                                className={cn(
+                                    url.startsWith('/dashboard')
+                                        ? 'bg-red-500 text-white'
+                                        : 'text-foreground hover:bg-gray-100',
+                                    'group flex gap-x-3 rounded-md p-3 text-sm font-semibold leading-relaxed'
+                                )}
+                            >
+                                <CiHome className={cn(
+                                    url.startsWith('/dashboard')
+                                        ? 'text-white'
+                                        : 'text-foreground',
+                                    'h-6 w-6 shrink-0'
+                                )} />
                                 Dashboard
                             </Link>
                         </li>
                         <li>
-                            <Link href='' className='flex p-3 text-sm font-semibold leading-relaxed tracking-tighter rounded-md text-foreground hover:bg-gray-100 group gap-x-3'>
-                                <CiUser className='w-6 h-6 text-foreground shrink-0' />
+                            <Link href='' className={cn(
+                                url.startsWith('/users')
+                                    ? 'bg-red-500 text-white'
+                                    : 'text-foreground hover:bg-gray-100',
+                                'group flex gap-x-3 rounded-md p-3 text-sm font-semibold leading-relaxed'
+                            )}
+                            >
+                                <CiUser className={cn(
+                                    url.startsWith('/users')
+                                        ? 'text-white'
+                                        : 'text-foreground',
+                                    'h-6 w-6 shrink-0'
+                                )} />
                                 People
                             </Link>
                         </li>
                         <li>
-                            <Link href='' className='flex p-3 text-sm font-semibold leading-relaxed tracking-tighter rounded-md text-foreground hover:bg-gray-100 group gap-x-3'>
-                                <CiGrid41 className='w-6 h-6 text-foreground shrink-0' />
+                            <Link href=''
+                                className={cn(
+                                    url.startsWith('/my-tasks')
+                                        ? 'bg-red-500 text-white'
+                                        : 'text-foreground hover:bg-gray-100',
+                                    'group flex gap-x-3 rounded-md p-3 text-sm font-semibold leading-relaxed'
+                                )}
+                            >
+                                <CiGrid41 className={cn(
+                                    url.startsWith('/my-tasks')
+                                        ? 'text-white'
+                                        : 'text-foreground',
+                                    'h-6 w-6 shrink-0'
+                                )} />
                                 My Task
                             </Link>
                         </li>
                         <li>
-                            <Link href='' className='flex p-3 text-sm font-semibold leading-relaxed tracking-tighter rounded-md text-foreground hover:bg-gray-100 group gap-x-3'>
-                                <CiLogout className='w-6 h-6 text-foreground shrink-0' />
+                            <Link href=''
+                                className={cn(
+                                    url.startsWith('/logout')
+                                        ? 'bg-red-500 text-white'
+                                        : 'text-foreground hover:bg-gray-100',
+                                    'group flex gap-x-3 rounded-md p-3 text-sm font-semibold leading-relaxed'
+                                )}
+                            >
+                                <CiLogout className={cn(
+                                    url.startsWith('/logout')
+                                        ? 'text-white'
+                                        : 'text-foreground',
+                                    'h-6 w-6 shrink-0'
+                                )} />
                                 Logout
                             </Link>
                         </li>
