@@ -3,7 +3,7 @@ import { CiUser, CiLogout, CiGrid41, CiHome, CiMedicalCross } from "react-icons/
 import { Avatar, AvatarFallback } from '@/Components/ui/avatar';
 
 
-export default function Sidebar() {
+export default function Sidebar({ auth }) {
     return (
         <nav className="flex flex-col flex-1">
             <ul role="list" className="flex flex-col flex-1 gap-y-7">
@@ -62,7 +62,7 @@ export default function Sidebar() {
                         <Avatar>
                             <AvatarFallback>X</AvatarFallback>
                         </Avatar>
-                        <span>Cahya Hafizh</span>
+                        <span>{auth.name}</span>
                     </Link>
                 </li>
             </ul>
